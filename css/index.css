@@ -1,0 +1,303 @@
+/* index.css - Page d'accueil Virtual Market */
+
+body {
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    min-height: 100vh;
+}
+
+/* Hero Header */
+.hero-header {
+    background: linear-gradient(135deg, #27ae60, #2ecc71);
+    padding: 40px 20px;
+    text-align: center;
+    color: white;
+    border-radius: 0 0 50px 50px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+    margin-bottom: 30px;
+}
+
+.hero-content h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+}
+
+.sous-titre {
+    font-size: 1.2rem;
+    opacity: 0.95;
+    margin-bottom: 20px;
+}
+
+.localisation-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: rgba(255,255,255,0.2);
+    padding: 10px 25px;
+    border-radius: 50px;
+    font-size: 1.1rem;
+    backdrop-filter: blur(5px);
+}
+
+.localisation-badge .emoji {
+    font-size: 1.3rem;
+}
+
+/* Navigation principale */
+.nav-principale {
+    max-width: 1200px;
+    margin: 0 auto 40px;
+    padding: 0 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.nav-card {
+    background: white;
+    border-radius: 30px;
+    padding: 25px 20px;
+    text-decoration: none;
+    color: #2c3e50;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+    border: 2px solid transparent;
+}
+
+.nav-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+}
+
+.nav-card:active {
+    transform: translateY(0);
+}
+
+.nav-emoji {
+    font-size: 3rem;
+    min-width: 70px;
+    text-align: center;
+}
+
+.nav-text h3 {
+    font-size: 1.3rem;
+    margin-bottom: 5px;
+    color: #27ae60;
+}
+
+.nav-text p {
+    color: #7f8c8d;
+    font-size: 0.9rem;
+}
+
+/* Carte admin spéciale */
+.admin-card {
+    background: linear-gradient(135deg, #2c3e50, #34495e);
+    color: white;
+}
+
+.admin-card .nav-text h3 {
+    color: #f1c40f;
+}
+
+.admin-card .nav-text p {
+    color: #bdc3c7;
+}
+
+.admin-badge {
+    background: #e74c3c;
+    color: white;
+    font-size: 0.7rem;
+    padding: 3px 8px;
+    border-radius: 12px;
+    display: inline-block;
+    margin-top: 5px;
+}
+
+/* Section À propos */
+.about-section {
+    max-width: 1200px;
+    margin: 0 auto 40px;
+    padding: 0 20px;
+}
+
+.about-section h2 {
+    text-align: center;
+    color: #2c3e50;
+    font-size: 2rem;
+    margin-bottom: 30px;
+}
+
+.about-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.about-card {
+    background: white;
+    border-radius: 30px;
+    padding: 30px 20px;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+}
+
+.about-emoji {
+    font-size: 3rem;
+    margin-bottom: 15px;
+}
+
+.about-card h3 {
+    color: #27ae60;
+    margin-bottom: 10px;
+    font-size: 1.2rem;
+}
+
+.about-card p {
+    color: #7f8c8d;
+    line-height: 1.5;
+}
+
+/* Comment ça marche */
+.how-it-works {
+    max-width: 800px;
+    margin: 0 auto 40px;
+    padding: 0 20px;
+}
+
+.how-it-works h2 {
+    text-align: center;
+    color: #2c3e50;
+    font-size: 2rem;
+    margin-bottom: 30px;
+}
+
+.steps-container {
+    background: white;
+    border-radius: 50px;
+    padding: 30px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+.step {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 15px 0;
+    border-bottom: 2px solid #f0f0f0;
+}
+
+.step:last-child {
+    border-bottom: none;
+}
+
+.step-number {
+    background: #27ae60;
+    color: white;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+.step-content {
+    flex: 1;
+}
+
+.step-content h3 {
+    color: #2c3e50;
+    margin-bottom: 3px;
+    font-size: 1.1rem;
+}
+
+.step-content p {
+    color: #7f8c8d;
+    font-size: 0.95rem;
+}
+
+/* Footer */
+.index-footer {
+    text-align: center;
+    padding: 20px;
+    background: white;
+    border-radius: 30px 30px 0 0;
+    margin-top: 40px;
+}
+
+.index-footer p {
+    color: #7f8c8d;
+    margin: 5px 0;
+}
+
+.index-footer .small {
+    font-size: 0.8rem;
+    opacity: 0.7;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .hero-content h1 {
+        font-size: 2rem;
+    }
+    
+    .nav-card {
+        padding: 15px;
+    }
+    
+    .nav-emoji {
+        font-size: 2rem;
+        min-width: 50px;
+    }
+    
+    .step {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .step-number {
+        margin-bottom: 5px;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-header {
+        border-radius: 0 0 30px 30px;
+        padding: 30px 15px;
+    }
+    
+    .hero-content h1 {
+        font-size: 1.8rem;
+    }
+    
+    .localisation-badge {
+        font-size: 0.9rem;
+        padding: 8px 15px;
+    }
+}
+
+/* Animation d'entrée */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.nav-card, .about-card, .steps-container {
+    animation: fadeInUp 0.5s ease forwards;
+}
+
+.nav-card:nth-child(2) { animation-delay: 0.1s; }
+.nav-card:nth-child(3) { animation-delay: 0.2s; }
+.nav-card:nth-child(4) { animation-delay: 0.3s; }
