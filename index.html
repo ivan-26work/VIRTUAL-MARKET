@@ -2,128 +2,82 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
-    <title>Virtual Market - Jacqueville</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Virtual Market - Accueil</title>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- CSS -->
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/index.css">
+    <!-- Supabase (AJOUTER CE CDN) -->
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 </head>
 <body>
-    <!-- Hero Section avec le nom du site -->
-    <header class="hero-header">
-        <div class="hero-content">
-            <h1>🛒 VIRTUAL MARKET</h1>
-            <p class="sous-titre">Votre marché en ligne à Jacqueville</p>
-            <div class="localisation-badge">
-                <span class="emoji">📍</span>
-                <span>Carrefour Sicor, Jacqueville</span>
-            </div>
+    <!-- Header -->
+    <header class="index-header">
+        <div class="header-container">
+            <img src="images/logo.png" alt="Virtual Market" class="logo">
+            <h1>VIRTUAL MARKET</h1>
         </div>
     </header>
 
-    <!-- Barre de navigation -->
-    <nav class="nav-principale">
-        <a href="marcher.html" class="nav-card">
-            <div class="nav-emoji">🏪</div>
-            <div class="nav-text">
-                <h3>Le Marché</h3>
-                <p>Achetez fruits et légumes frais</p>
-            </div>
-        </a>
-        
-        <a href="panier.html" class="nav-card">
-            <div class="nav-emoji">🛒</div>
-            <div class="nav-text">
-                <h3>Mon Panier</h3>
-                <p>Vos achats en cours</p>
-            </div>
-        </a>
-        
-        <a href="mescommandes.html" class="nav-card">
-            <div class="nav-emoji">📦</div>
-            <div class="nav-text">
-                <h3>Mes Commandes</h3>
-                <p>Suivez vos livraisons</p>
-            </div>
-        </a>
-        
-        <a href="admin.html" class="nav-card admin-card">
-            <div class="nav-emoji">⚙️</div>
-            <div class="nav-text">
-                <h3>Administration</h3>
-                <p>Gérer les produits et commandes</p>
-                <span class="admin-badge">Réservé</span>
-            </div>
-        </a>
-    </nav>
+    <!-- Contenu principal -->
+    <main class="index-main">
+        <!-- Slogan et description -->
+        <section class="hero-section">
+            <h2>Le marché traditionnel<br>passe au digital</h2>
+            <p class="description">
+                Achetez vos fruits, légumes et produits frais en ligne sur VIRTUAL MARKET. 
+                Faites votre marché depuis chez vous et récupérez vos courses en point relais 
+                ou livrez-les à domicile.
+            </p>
+        </section>
 
-    <!-- Section À propos -->
-    <section class="about-section">
-        <h2>🇨🇮 À propos de Virtual Market</h2>
-        <div class="about-content">
-            <div class="about-card">
-                <div class="about-emoji">📍</div>
-                <h3>Notre local</h3>
-                <p>Carrefour Sicor<br>Jacqueville, Côte d'Ivoire</p>
+        <!-- Cartes fonctionnalités -->
+        <section class="features-section">
+            <div class="features-grid">
+                <!-- Marcher -->
+                <div class="feature-card" id="card-marcher">
+                    <i class="fas fa-store feature-icon"></i>
+                    <h3>MARCHER</h3>
+                    <p>Achetez vos produits frais</p>
+                    <div class="card-footer">
+                        <i class="fas fa-arrow-right"></i>
+                    </div>
+                </div>
+
+                <!-- Panier -->
+                <div class="feature-card" id="card-panier">
+                    <i class="fas fa-shopping-cart feature-icon"></i>
+                    <h3>PANIER</h3>
+                    <p>Vos achats en cours</p>
+                    <div class="card-footer">
+                        <i class="fas fa-arrow-right"></i>
+                    </div>
+                </div>
+
+                <!-- Mes commandes -->
+                <div class="feature-card" id="card-commandes">
+                    <i class="fas fa-box feature-icon"></i>
+                    <h3>MES COMMANDES</h3>
+                    <p>Suivez vos commandes</p>
+                    <div class="card-footer">
+                        <i class="fas fa-arrow-right"></i>
+                    </div>
+                </div>
             </div>
-            
-            <div class="about-card">
-                <div class="about-emoji">🚚</div>
-                <h3>Livraison</h3>
-                <p>Rayon de 4 km autour de Jacqueville<br>25 F.CFA / 100 mètres</p>
-            </div>
-            
-            <div class="about-card">
-                <div class="about-emoji">📱</div>
-                <h3>Simple et rapide</h3>
-                <p>Commandez en ligne<br>Retrait au local ou livraison</p>
-            </div>
+        </section>
+
+        <!-- Profil utilisateur (flottant) -->
+        <div id="user-profile" class="user-profile">
+            <!-- Sera injecté par JS -->
         </div>
-    </section>
+    </main>
 
-    <!-- Section Comment ça marche -->
-    <section class="how-it-works">
-        <h2>Comment ça marche ?</h2>
-        <div class="steps-container">
-            <div class="step">
-                <div class="step-number">1</div>
-                <div class="step-content">
-                    <h3>Parcourez le marché</h3>
-                    <p>Choisissez vos produits (banane, tomate, etc.)</p>
-                </div>
-            </div>
-            
-            <div class="step">
-                <div class="step-number">2</div>
-                <div class="step-content">
-                    <h3>Ajoutez au panier</h3>
-                    <p>Sélectionnez les kilos souhaités</p>
-                </div>
-            </div>
-            
-            <div class="step">
-                <div class="step-number">3</div>
-                <div class="step-content">
-                    <h3>Choisissez la réception</h3>
-                    <p>Livraison à domicile ou retrait au local</p>
-                </div>
-            </div>
-            
-            <div class="step">
-                <div class="step-number">4</div>
-                <div class="step-content">
-                    <h3>Payez et suivez</h3>
-                    <p>Recevez votre commande</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer simple -->
-    <footer class="index-footer">
-        <p>© 2024 Virtual Market - Jacqueville, Côte d'Ivoire</p>
-        <p class="small">Site de test - Tous les prix sont en F.CFA</p>
-    </footer>
 
     <script src="js/index.js"></script>
+    
+    <script src="js/supabase.js"></script>
+    
 </body>
 </html>
