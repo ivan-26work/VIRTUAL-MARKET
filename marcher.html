@@ -3,25 +3,173 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>🏪 Marché Local</title>
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/marcher.css">
+    <title>Virtual Market - Le Marché</title>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Supabase -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+        
+        body {
+            background: #f8f9fa;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        h1 {
+            color: #27ae60;
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+        
+        .sous-titre {
+            color: #7f8c8d;
+            font-size: 1.1rem;
+        }
+        
+        .produits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+        
+        .produit-card {
+            background: white;
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: transform 0.2s;
+        }
+        
+        .produit-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .produit-nom {
+            font-size: 1.4rem;
+            color: #2c3e50;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .produit-details {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+            padding: 10px 0;
+            border-top: 1px solid #f0f0f0;
+            border-bottom: 1px solid #f0f0f0;
+        }
+        
+        .produit-prix {
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: #27ae60;
+        }
+        
+        .produit-stock {
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+        }
+        
+        .stock-dispo {
+            background: #d4edda;
+            color: #27ae60;
+        }
+        
+        .stock-faible {
+            background: #fff3cd;
+            color: #e67e22;
+        }
+        
+        .stock-rupture {
+            background: #f8d7da;
+            color: #e74c3c;
+        }
+        
+        .produit-bloque {
+            opacity: 0.6;
+        }
+        
+        .badge-bloque {
+            background: #f8d7da;
+            color: #e74c3c;
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            display: inline-block;
+        }
+        
+        .loading {
+            text-align: center;
+            padding: 50px;
+            color: #7f8c8d;
+        }
+        
+        .loading i {
+            font-size: 3rem;
+            margin-bottom: 15px;
+            color: #27ae60;
+        }
+        
+        .info-admin {
+            margin-top: 40px;
+            padding: 20px;
+            background: #e8f4f8;
+            border-radius: 10px;
+            text-align: center;
+            color: #2c3e50;
+        }
+        
+        .info-admin a {
+            color: #27ae60;
+            font-weight: bold;
+            text-decoration: none;
+        }
+    </style>
 </head>
 <body>
-    <header class="marcher-header">
-        <h1>🏪 Marché de Quartier</h1>
-        <nav class="marcher-nav">
-            <a href="panier.html" class="panier-icon">
-                🛒 <span id="panier-count" class="panier-count">0</span>
-            </a>
-            <a href="admin.html">⚙️</a>
-        </nav>
-    </header>
-
-    <main class="marcher-main">
-        <!-- Les produits sont générés par JavaScript -->
-    </main>
-
-    <script src="js/marcher.js"></script>
+    <div class="container">
+        <header>
+            <h1>🏪 VIRTUAL MARKET</h1>
+            <p class="sous-titre">Les produits frais, en direct du marché</p>
+        </header>
+        
+        <div id="produits-container" class="produits-grid">
+            <div class="loading">
+                <i class="fas fa-spinner fa-spin"></i>
+                <p>Chargement des produits...</p>
+            </div>
+        </div>
+        
+        <div class="info-admin">
+            <i class="fas fa-sync-alt"></i>
+            Les produits sont mis à jour automatiquement depuis l'espace admin.
+            <br>
+            <small>Les modifications sont instantanées</small>
+        </div>
+    </div>
+    
+    <script src="marcher.js"></script>
 </body>
 </html>
