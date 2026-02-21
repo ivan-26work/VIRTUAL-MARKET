@@ -1,0 +1,269 @@
+/* Styles spécifiques à la page admin */
+
+/* En-tête admin */
+.admin-header {
+    background: linear-gradient(135deg, #2c3e50, #34495e);
+}
+
+.admin-header h1 {
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+}
+
+/* Cartes produits en admin */
+.produits-admin {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 25px;
+    margin: 30px 0;
+}
+
+.produit-card {
+    background: white;
+    border: 1px solid #e0e0e0;
+    border-radius: 12px;
+    padding: 25px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.produit-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+}
+
+.produit-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #f0f0f0;
+}
+
+/* Groupes de formulaire */
+.form-group {
+    margin: 20px 0;
+    padding: 10px;
+    background: #f8f9fa;
+    border-radius: 8px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    color: #495057;
+    font-weight: 600;
+    font-size: 0.95rem;
+}
+
+.form-group input[type="number"] {
+    width: 100%;
+    padding: 10px;
+    border: 2px solid #e0e0e0;
+    border-radius: 6px;
+    font-size: 1rem;
+    transition: border-color 0.2s;
+}
+
+.form-group input[type="number"]:focus {
+    outline: none;
+    border-color: #4CAF50;
+}
+
+/* Checkbox de blocage */
+.form-group input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+.form-group label:has(input[type="checkbox"]) {
+    display: flex;
+    align-items: center;
+    color: #dc3545;
+    font-weight: normal;
+}
+
+/* Zone d'actions */
+.actions {
+    text-align: center;
+    margin: 30px 0;
+    padding: 20px;
+    background: #f8f9fa;
+    border-radius: 10px;
+}
+
+.btn-sauvegarder {
+    background: #28a745;
+    color: white;
+    padding: 15px 40px;
+    border: none;
+    border-radius: 50px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(40, 167, 69, 0.3);
+    transition: all 0.3s;
+}
+
+.btn-sauvegarder:hover {
+    background: #218838;
+    transform: scale(1.05);
+    box-shadow: 0 6px 8px rgba(40, 167, 69, 0.4);
+}
+
+.btn-sauvegarder:active {
+    transform: scale(0.95);
+}
+
+/* Info stock */
+.info-stock {
+    margin-top: 30px;
+    padding: 20px;
+    background: linear-gradient(135deg, #e8f4f8, #d1e7f5);
+    border-radius: 10px;
+    border-left: 5px solid #17a2b8;
+}
+
+.info-stock h3 {
+    color: #117a8b;
+    margin-bottom: 15px;
+    font-size: 1.3rem;
+}
+
+#affichage-stock {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #2c3e50;
+    padding: 10px;
+    background: white;
+    border-radius: 6px;
+    display: inline-block;
+}
+
+/* Badges pour état produit */
+.produit-badge {
+    display: inline-block;
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: bold;
+    margin-left: 10px;
+}
+
+.badge-disponible {
+    background: #d4edda;
+    color: #155724;
+}
+
+.badge-bloque {
+    background: #f8d7da;
+    color: #721c24;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .produits-admin {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+    
+    .produit-card {
+        padding: 15px;
+    }
+    
+    .btn-sauvegarder {
+        width: 100%;
+        padding: 12px;
+    }
+    
+    #affichage-stock {
+        display: block;
+        text-align: center;
+    }
+}
+
+/* Animation de sauvegarde */
+@keyframes saveFlash {
+    0% { background: #28a745; }
+    50% { background: #ffc107; }
+    100% { background: #28a745; }
+}
+
+.saving {
+    animation: saveFlash 1s ease;
+}
+
+/* Tooltip pour aides */
+.form-group {
+    position: relative;
+}
+
+.form-group:hover::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #333;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-size: 0.85rem;
+    white-space: nowrap;
+    z-index: 10;
+}
+
+/* Style pour champs vides/invalides */
+.form-group input:invalid {
+    border-color: #dc3545;
+    background: #fff8f8;
+}
+
+/* Indicateur de modification */
+.modified-indicator {
+    font-size: 0.8rem;
+    color: #ffc107;
+    margin-left: 10px;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.modified .modified-indicator {
+    opacity: 1;
+}
+.produit-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.btn-supprimer-produit {
+    background: #fee;
+    border: none;
+    color: #e74c3c;
+    font-size: 1.2rem;
+    padding: 8px 12px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.btn-supprimer-produit:active {
+    background: #fdd;
+}
+
+.btn-secondaire {
+    background: #3498db;
+    color: white;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+.btn-secondaire:active {
+    background: #2980b9;
+}

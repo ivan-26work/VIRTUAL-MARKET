@@ -1,0 +1,421 @@
+/* marcher.css - Interface du marché public */
+
+/* Reset spécifique pour le marché */
+.marcher-body {
+    background: #f0f2f5;
+}
+
+/* Header du marché */
+.marcher-header {
+    background: linear-gradient(135deg, #27ae60, #2ecc71);
+    padding: 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.marcher-header h1 {
+    color: white;
+    font-size: 1.4rem;
+    margin: 0;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+}
+
+/* Navigation marché */
+.marcher-nav {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+}
+
+.marcher-nav a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.3rem;
+    padding: 8px 12px;
+    background: rgba(255,255,255,0.15);
+    border-radius: 30px;
+    transition: background 0.2s;
+}
+
+.marcher-nav a:active {
+    background: rgba(255,255,255,0.3);
+}
+
+/* Compteur panier */
+.panier-icon {
+    position: relative;
+    display: inline-block;
+}
+
+.panier-count {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    background: #e74c3c;
+    color: white;
+    font-size: 0.75rem;
+    font-weight: bold;
+    padding: 2px 6px;
+    border-radius: 20px;
+    min-width: 18px;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+/* Conteneur principal */
+.marcher-container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 16px;
+}
+
+/* Cartes produit */
+.marcher-produit {
+    background: white;
+    border-radius: 24px;
+    margin-bottom: 20px;
+    padding: 20px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    border: 1px solid rgba(0,0,0,0.05);
+}
+
+/* En-tête du produit */
+.produit-titre {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+}
+
+.produit-titre h2 {
+    font-size: 1.8rem;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.produit-prix {
+    background: #e8f5e9;
+    color: #27ae60;
+    font-size: 1.6rem;
+    font-weight: bold;
+    padding: 8px 18px;
+    border-radius: 40px;
+    border: 2px solid #c8e6c9;
+}
+
+/* Stock disponible */
+.produit-stock {
+    background: #f8f9fa;
+    padding: 16px;
+    border-radius: 18px;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.2rem;
+    border: 1px solid #e9ecef;
+}
+
+.stock-label {
+    color: #6c757d;
+    font-weight: 500;
+}
+
+.stock-valeur {
+    font-weight: bold;
+    color: #2c3e50;
+    background: white;
+    padding: 6px 14px;
+    border-radius: 30px;
+    box-shadow: inset 0 1px 3px rgba(0,0,0,0.05);
+}
+
+/* Zone actions */
+.produit-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+/* Bouton 1kg */
+.btn-1kg {
+    background: #3498db;
+    color: white;
+    border: none;
+    padding: 18px;
+    font-size: 1.3rem;
+    font-weight: bold;
+    border-radius: 18px;
+    cursor: pointer;
+    transition: background 0.15s;
+    box-shadow: 0 4px 0 #2980b9;
+}
+
+.btn-1kg:active {
+    transform: translateY(2px);
+    box-shadow: 0 2px 0 #2980b9;
+    background: #2980b9;
+}
+
+/* Sélecteur kilo */
+.kilo-selecteur {
+    display: flex;
+    gap: 10px;
+    align-items: stretch;
+}
+
+.kilo-input {
+    flex: 2;
+    border: 2px solid #dee2e6;
+    border-radius: 18px;
+    padding: 0 16px;
+    font-size: 1.2rem;
+    text-align: center;
+    background: white;
+    min-height: 60px;
+}
+
+.kilo-input:focus {
+    outline: none;
+    border-color: #f39c12;
+}
+
+.btn-kilo {
+    flex: 1;
+    background: #f39c12;
+    color: white;
+    border: none;
+    border-radius: 18px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 4px 0 #e67e22;
+    transition: all 0.15s;
+    min-height: 60px;
+}
+
+.btn-kilo:active {
+    transform: translateY(2px);
+    box-shadow: 0 2px 0 #e67e22;
+    background: #e67e22;
+}
+
+/* Messages d'erreur */
+.produit-error {
+    color: #e74c3c;
+    font-size: 0.9rem;
+    margin-top: 8px;
+    padding: 4px 12px;
+    background: #fdf3f2;
+    border-radius: 30px;
+    text-align: center;
+}
+
+/* État indisponible */
+.produit-indisponible {
+    opacity: 0.7;
+    position: relative;
+}
+
+.produit-indisponible::before {
+    content: "🚫 INDISPONIBLE";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(-5deg);
+    background: rgba(231, 76, 60, 0.9);
+    color: white;
+    font-weight: bold;
+    padding: 12px 24px;
+    border-radius: 50px;
+    font-size: 1.2rem;
+    z-index: 10;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    pointer-events: none;
+    border: 2px solid white;
+}
+
+.produit-indisponible .btn-1kg,
+.produit-indisponible .btn-kilo,
+.produit-indisponible .kilo-input {
+    pointer-events: none;
+    opacity: 0.5;
+}
+
+/* État rupture */
+.rupture-stock .stock-valeur {
+    color: #e74c3c;
+}
+
+.rupture-stock .stock-valeur::after {
+    content: " (épuisé)";
+    font-weight: normal;
+    font-size: 0.9rem;
+}
+
+.rupture-stock .btn-1kg,
+.rupture-stock .btn-kilo {
+    background: #95a5a6;
+    box-shadow: 0 4px 0 #7f8c8d;
+    pointer-events: none;
+}
+
+/* Stock faible */
+.stock-faible .stock-valeur {
+    color: #e67e22;
+}
+
+.stock-faible .stock-valeur::after {
+    content: " ⚠️ bientôt fini";
+    font-weight: normal;
+    font-size: 0.9rem;
+}
+
+/* Animation ajout panier */
+@keyframes addToCart {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); background: #27ae60; }
+    100% { transform: scale(1); }
+}
+
+.add-animation {
+    animation: addToCart 0.3s ease;
+}
+
+/* Toast notification */
+.toast-notification {
+    position: fixed;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%) translateY(100px);
+    background: #2c3e50;
+    color: white;
+    padding: 14px 28px;
+    border-radius: 50px;
+    font-size: 1rem;
+    font-weight: bold;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    z-index: 1000;
+    transition: transform 0.3s ease;
+    white-space: nowrap;
+}
+
+.toast-notification.show {
+    transform: translateX(-50%) translateY(0);
+}
+
+.toast-notification.success {
+    background: #27ae60;
+}
+
+.toast-notification.error {
+    background: #e74c3c;
+}
+
+/* Responsive petits écrans */
+@media (max-width: 400px) {
+    .marcher-header h1 {
+        font-size: 1.1rem;
+    }
+    
+    .produit-titre h2 {
+        font-size: 1.4rem;
+    }
+    
+    .produit-prix {
+        font-size: 1.3rem;
+        padding: 6px 14px;
+    }
+    
+    .produit-stock {
+        padding: 12px;
+        font-size: 1rem;
+    }
+    
+    .btn-1kg, .btn-kilo {
+        padding: 14px;
+        font-size: 1.1rem;
+        min-height: 55px;
+    }
+    
+    .kilo-input {
+        min-height: 55px;
+        font-size: 1rem;
+    }
+}
+
+/* Mode sombre optionnel */
+@media (prefers-color-scheme: dark) {
+    .marcher-body {
+        background: #1a1e24;
+    }
+    
+    .marcher-produit {
+        background: #2c3e50;
+        border-color: #34495e;
+    }
+    
+    .produit-titre h2 {
+        color: #ecf0f1;
+    }
+    
+    .produit-stock {
+        background: #34495e;
+        border-color: #3d566e;
+    }
+    
+    .stock-label {
+        color: #bdc3c7;
+    }
+    
+    .stock-valeur {
+        background: #2c3e50;
+        color: #ecf0f1;
+    }
+    
+    .kilo-input {
+        background: #34495e;
+        border-color: #3d566e;
+        color: white;
+    }
+    
+    .produit-error {
+        background: #3d1e1e;
+    }
+}
+
+/* Support tactile - retirer les hovers */
+@media (hover: none) {
+    .btn-1kg:hover,
+    .btn-kilo:hover {
+        background: initial;
+        transform: none;
+    }
+    
+    .btn-1kg:active,
+    .btn-kilo:active {
+        transform: translateY(2px);
+    }
+}
+
+/* Loading skeleton */
+@keyframes shimmer {
+    0% { background-position: -200% 0; }
+    100% { background-position: 200% 0; }
+}
+
+.loading-skeleton {
+    background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+    background-size: 200% 100%;
+    animation: shimmer 1.5s infinite;
+    border-radius: 18px;
+    height: 300px;
+    margin-bottom: 20px;
+}
