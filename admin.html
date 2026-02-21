@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin - Marché Local</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/admin.css">
+</head>
+<body>
+    <header class="admin-header">
+        <h1>🛠️ Administration du Marché</h1>
+        <nav>
+            <a href="marcher.html">🏪 Marché</a>
+            <a href="panier.html">🛒 Panier</a>
+            <a href="commande.html">📦 Commandes</a>
+        </nav>
+    </header>
+
+    <main>
+        <h2>Gérer les produits</h2>
+        
+        <div class="produits-admin" id="produits-container">
+            <!-- Les produits seront injectés par JavaScript -->
+        </div>
+
+        <div class="actions">
+            <button id="ajouter-produit" class="btn-secondaire">➕ Ajouter un produit</button>
+            <button id="sauvegarder" class="btn-primary">💾 Sauvegarder les modifications</button>
+        </div>
+
+        <div class="info-stock">
+            <h3>📊 État actuel des stocks</h3>
+            <p id="affichage-stock">Aucun produit</p>
+        </div>
+    </main>
+
+    <!-- Template pour un produit -->
+    <template id="template-produit">
+        <div class="produit-card" data-produit="">
+            <div class="produit-header">
+                <h3><span class="produit-emoji">📦</span> <span class="produit-nom">Nouveau produit</span></h3>
+                <button class="btn-supprimer-produit" title="Supprimer">🗑️</button>
+            </div>
+            <div class="form-group">
+                <label>Nom du produit:</label>
+                <input type="text" class="produit-nom-input" value="Nouveau produit">
+            </div>
+            <div class="form-group">
+                <label>Prix au kg (€):</label>
+                <input type="number" class="produit-prix" min="0" step="0.01" value="2.00">
+            </div>
+            <div class="form-group">
+                <label>Kg disponibles:</label>
+                <input type="number" class="produit-stock" min="0" step="0.1" value="10">
+            </div>
+            <div class="form-group">
+                <label>
+                    <input type="checkbox" class="produit-bloque"> 
+                    🚫 Bloquer le produit
+                </label>
+            </div>
+        </div>
+    </template>
+
+    <script src="js/admin.js"></script>
+</body>
+</html>

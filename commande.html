@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>📦 Commandes - Admin</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/commande.css">
+</head>
+<body>
+    <header class="commande-header">
+        <h1>📦 Gestion des commandes</h1>
+        <nav>
+            <a href="marcher.html">🏪 Marché</a>
+            <a href="panier.html">🛒 Panier</a>
+            <a href="admin.html">⚙️ Admin</a>
+        </nav>
+    </header>
+
+    <main class="commande-container">
+        <div class="commande-entete">
+            <h2>Commandes en cours</h2>
+            <button id="rafraichir" class="btn-rafraichir">🔄 Rafraîchir</button>
+        </div>
+
+        <!-- Alerte sonore cachée -->
+        <audio id="notification-son" preload="auto">
+            <source src="data:audio/mp3;base64,SUQzBAAAAAAAI1RTU0UAAAAPAAADTGF2ZjU4Ljc2LjEwMAAAAAAAAAAAAAAA//tQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAWGluZwAAAA8AAAACAAABIADAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMD//////////////////////////////////////////////////////////////////8AAAAATGF2YzU4LjEzAAAAAAAAAAAAAAAAJAAAAAAAAAAAASD90aMAAAAAAAAD/+5DEAAAAGAAABAIAAAAwAAAASW/ef7gAACa0yURBAAAJpQ0NDQAAAKY0NDQ0AAA" type="audio/mp3">
+        </audio>
+
+        <!-- Liste des commandes -->
+        <div id="commandes-liste" class="commandes-liste">
+            <!-- Les commandes seront injectées ici -->
+        </div>
+
+        <!-- Template pour une commande -->
+        <template id="template-commande">
+            <div class="commande-card" data-commande-id="">
+                <div class="commande-header">
+                    <div class="commande-info">
+                        <span class="commande-id"></span>
+                        <span class="commande-date"></span>
+                    </div>
+                    <span class="commande-statut"></span>
+                </div>
+
+                <div class="commande-client">
+                    <span class="client-nom"></span>
+                    <span class="client-livraison"></span>
+                </div>
+
+                <div class="commande-produits">
+                    <table class="produits-table">
+                        <thead>
+                            <tr>
+                                <th>Produit</th>
+                                <th>Kg</th>
+                                <th>Prix/kg</th>
+                                <th>Total</th>
+                            </tr>
+                        </thead>
+                        <tbody class="produits-body">
+                            <!-- Lignes produits -->
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="commande-total">
+                    <strong>Total: </strong>
+                    <span class="total-montant"></span>
+                </div>
+
+                <div class="commande-localisation">
+                    <!-- Bouton maps ou message -->
+                </div>
+            </div>
+        </template>
+    </main>
+
+    <script src="js/commande.js"></script>
+</body>
+</html>

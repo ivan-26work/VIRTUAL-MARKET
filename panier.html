@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <title>🛒 Mon Panier</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/panier.css">
+</head>
+<body>
+    <header class="panier-header">
+        <h1>🛒 Votre Panier</h1>
+        <nav class="panier-nav">
+            <a href="marcher.html" class="nav-btn">🏪 Marché</a>
+            <a href="admin.html" class="nav-btn">⚙️ Admin</a>
+        </nav>
+    </header>
+
+    <main class="panier-container">
+        <!-- Panier vide -->
+        <div id="panier-vide" class="panier-vide">
+            <div class="panier-vide-icon">🛒</div>
+            <h2>Votre panier est vide</h2>
+            <p>Ajoutez des produits depuis le marché</p>
+            <a href="marcher.html" class="btn-marche">🏪 Voir le marché</a>
+        </div>
+
+        <!-- Panier avec articles -->
+        <div id="panier-contenu" class="panier-contenu">
+            <div class="panier-entete">
+                <span>Produit</span>
+                <span>Kg</span>
+                <span>Prix/kg</span>
+                <span>Total</span>
+                <span></span>
+            </div>
+
+            <div id="panier-liste" class="panier-liste">
+                <!-- Les articles seront injectés ici -->
+            </div>
+
+            <!-- NOUVEAU : Choix de livraison -->
+            <div class="livraison-options">
+                <h3>🚚 Mode de réception</h3>
+                <div class="options-group">
+                    <label class="option-livraison">
+                        <input type="radio" name="livraison" value="domicile" checked>
+                        <span class="option-emoji">🚚</span>
+                        <div class="option-details">
+                            <strong>Livraison à domicile</strong>
+                            <small>Partagez votre position pour être livré</small>
+                        </div>
+                    </label>
+                    
+                    <label class="option-livraison">
+                        <input type="radio" name="livraison" value="local">
+                        <span class="option-emoji">🏪</span>
+                        <div class="option-details">
+                            <strong>Retrait au local</strong>
+                            <small>Venez chercher vos produits directement</small>
+                        </div>
+                    </label>
+                </div>
+                <p id="livraison-info" class="livraison-info"></p>
+            </div>
+
+            <div class="panier-total">
+                <div class="total-ligne">
+                    <span>Sous-total</span>
+                    <span id="sous-total">0.00 €</span>
+                </div>
+                <div class="total-ligne total-final">
+                    <span>TOTAL</span>
+                    <span id="total-general">0.00 €</span>
+                </div>
+            </div>
+
+            <div class="panier-actions">
+                <button id="btn-vider" class="btn-secondaire">🗑️ Vider</button>
+                <button id="btn-payer" class="btn-principal">💳 Payer</button>
+            </div>
+        </div>
+    </main>
+
+    <!-- Template article -->
+    <template id="template-article">
+        <div class="panier-article" data-produit="">
+            <div class="article-nom"></div>
+            <div class="article-kg">
+                <input type="number" class="kg-input" min="0.1" step="0.1" value="1">
+            </div>
+            <div class="article-prix-unitaire"></div>
+            <div class="article-total"></div>
+            <div class="article-supprimer">
+                <button class="btn-supprimer">✕</button>
+            </div>
+        </div>
+    </template>
+
+    <script src="js/panier.js"></script>
+</body>
+</html>
